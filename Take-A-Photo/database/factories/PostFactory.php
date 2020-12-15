@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Model;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Post::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'nick_name' => $this->faker->firstName(),
-            'email' => $this->faker->email,
-            'password' => $this->faker->password,
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->sentence(),
+            'categorie_id' => 1,
+            'user_id' => 1, 
         ];
     }
 }
