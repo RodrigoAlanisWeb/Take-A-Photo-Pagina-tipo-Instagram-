@@ -1,6 +1,7 @@
-@include('layout.header')
+{{-- Cargar Plantilla --}}
+@extends('layout.plantilla')
 
-
-
-</body>
-</html>
+{{-- Setear Contenido --}}
+@section('content')
+    
+@endsection

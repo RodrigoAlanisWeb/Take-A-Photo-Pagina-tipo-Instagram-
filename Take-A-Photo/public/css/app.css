@@ -96,6 +96,8 @@
     border-top: 1px solid #ccc;
     align-items: center;
     margin-top: -1000px;
+    background-color: white;
+    z-index: 10000;
 }
 
 .header__user-item{
@@ -108,3 +110,128 @@
     font-size: 20px;
     font-weight: 300;
 }
+
+/* Main */
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr 25%;
+    padding: 20px;
+}
+
+.main__content{
+    box-shadow: 0px 0px 5px #ccc;
+    min-height: 85vh;
+}
+
+/* Aside */
+
+/* Aside Register */
+.main__aside{
+    width: 90%;
+    margin: 0px auto;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+.main__aside-form{
+    padding: 10px;
+}
+
+.main__aside-input{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #888;
+    transition: all 300ms;
+    outline: none;
+}
+
+.main__aside-form-group{
+    display: block;
+    font-size: 22px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.main__aside-form-title{
+    font-weight: 300;
+    text-align: center;
+}
+
+.main__aside-form-group--file{
+    width: 200px;
+    height: 200px;
+    border-radius: 999px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-size: cover;
+}
+
+.main__aside-input--file{
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    margin-bottom: 10px;
+}
+
+.main__aside-form-btn{
+    margin-top: 40px;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #dcdcdc;
+    outline: none;
+    font-size: 16px;
+    color: #888;
+    transition: all 300ms;
+}
+
+.main__aside-form-btn:hover{
+    color: #333;
+    border: 1px solid #333;
+}
+
+.main__aside-input:focus{
+    color: #333;
+    border: 1px solid #333;
+}
+
+.main__aside-form-icon{
+    position: absolute;
+    font-size: 100px;
+}
+
+.main__aside-form-change{
+    display: block;
+    margin-top: 10px;
+}
+
+.main__aside-form-change:hover{
+    cursor: pointer;
+}
+
+/* Alertas */
+
+.alert{
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.alert-error{
+    background-color: red;
+}
+
+/* Preview */

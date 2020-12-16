@@ -27,4 +27,41 @@ $(document).ready(()=>{
             break 
         }
     })
+
+    // Previsulaizacion de la imagen
+    $('#file-input').change((e)=>{
+        // Creamos el objeto de la clase FIleReader
+        let reader = new FileReader();
+
+        // Leer Archivo
+        reader.readAsDataURL(e.target.files[0]);
+
+        // Ejecutar el codigo interno
+
+        reader.onload = function(){
+            console.log('onload');
+            let container = $('.main__aside-form-group--file');
+
+            container.children().css('display','none');
+            container.css('background-image',`url('${reader.result}')`)
+            console.log();
+        }
+    });
+
+    // Cambio de Formulario (login to register / register to login)
+
+    $('#login').css('display','none');
+
+    $('#to-login').click(()=>{
+        Change('register','login')
+    })
+
+    $('#to-register').click(()=>{
+        Change('login','register')
+    })
+
+    function Change(form,to) {
+        $(`#${form}`).css('display','none');
+        $(`#${to}`).css('display','block');
+    }
 })
