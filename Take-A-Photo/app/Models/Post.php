@@ -19,4 +19,14 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Categorie');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function Image()
+    {
+        return $this->morphOne('App\Models\Image','imageable');
+    }
 }

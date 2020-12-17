@@ -15,9 +15,16 @@
     @include('layout.header')
 
     <div class="main">
-        <div class="main__content">
-            @yield('content')
-        </div>
+        @if (Auth::check())
+            <div class="main__content" style="width: 85%;margin:0px auto">
+                @yield('content')
+            </div>
+        @else
+            <div class="main__content">
+                @yield('content')
+            </div>
+        @endif
+        
         @include('layout.aside')
     </div>
 

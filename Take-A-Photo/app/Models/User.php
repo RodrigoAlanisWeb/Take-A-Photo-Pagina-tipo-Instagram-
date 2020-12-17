@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements AuthenticatableContract
 {
+    use HasFactory;
     use Authenticatable;
 
     protected $attributes = [
@@ -26,5 +27,12 @@ class User extends Model implements AuthenticatableContract
     public function Posts() 
     {
        return $this->hasMany('App\Models\Post');
+    }
+
+    // relacione polimorfica
+
+    public function Image()
+    {
+        return $this->morphOne('App\Models\Image','imageable');
     }
 }

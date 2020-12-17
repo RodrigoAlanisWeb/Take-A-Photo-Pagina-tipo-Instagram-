@@ -16,7 +16,7 @@
     height: 80px;
     box-shadow: 0px 0px 5px #ccc;
     display: grid;
-    grid-template-columns: 25% 55% 20%;
+    grid-template-columns: 25% 50% 25%;
     grid-template-rows: 80px 250px;
     align-items: center;  
 }
@@ -70,14 +70,22 @@
 }
 
 .header__user{
+    width: 81%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
 .header__user-name{
     font-size: 30px;
     font-weight: lighter;
+}
+
+.header__user-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 99px;
+    border: 1px solid #dcdcdc;
 }
 
 .header__user-btn{
@@ -114,24 +122,51 @@
 /* Main */
 
 .main{
-    display: grid;
-    grid-template-columns: 1fr 25%;
+    display: flex;
     padding: 20px;
 }
 
+/* Content */
 .main__content{
+    width: 73%;
     box-shadow: 0px 0px 5px #ccc;
     min-height: 85vh;
 }
 
+.main__articles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 30px;
+}
+
+.main__article{
+    display: block;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+
+.main__article-img{
+    width: 95%;
+    margin: 0px auto;
+}
+
+.main__article-user{
+    font-weight: 300;
+    margin-top: 10px;
+}
 /* Aside */
 
 /* Aside Register */
 .main__aside{
-    width: 90%;
-    margin: 0px auto;
+    width: 25%;
     padding: 10px;
     box-shadow: 0px 0px 5px #ccc;
+    margin-left: 30px;
+    max-height: 100vh;
 }
 
 .main__aside-form{
@@ -218,6 +253,63 @@
     cursor: pointer;
 }
 
+/* Post */
+
+.main__post{
+    display: flex;
+    flex-direction: column;
+    padding: 35px;
+}
+
+.main__post-img{
+    width: 100%;
+    display: flex;
+    box-shadow: 0px 0px 5px #ccc;
+    justify-content: center;
+}
+
+.main__post-img img {
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+}
+
+.main__post-content{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.main__post-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__post-title{
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.main__post-user{
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.main__post-description{
+    margin-top: 40px;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.main__post-extras{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 300;
+    justify-content: space-between;
+}
+
 /* Alertas */
 
 .alert{
@@ -233,5 +325,3 @@
 .alert-error{
     background-color: red;
 }
-
-/* Preview */

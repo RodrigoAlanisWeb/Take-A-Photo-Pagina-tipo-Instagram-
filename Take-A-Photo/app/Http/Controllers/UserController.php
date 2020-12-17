@@ -15,39 +15,50 @@ class UserController extends Controller
         $request->validate([
             'complete_name' => 'required|string',
             'nick_name' => 'required|string',
-            'email' => 'required|email',
-            'password' => 'required|string',
+            'email_reg' => 'required|email',
+            'password_reg' => 'required|string',
         ]);
 
         User::create([
             'name' => $request->complete_name,
             'nick_name' => $request->nick_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'email' => $request->email_reg,
+            'password' => Hash::make($request->password_reg),
         ]);
 
         $user = User::where('email', $request->email)->get();
 
-        if ($request->file('image')) {
-            $path = $request->file('image')->store('public');
-            Image::create([
-                'imageable_id' => $user[0]->id,
-                'imageable_type' => 'App\Models\User',
-                'path' => $path,
-            ]);
+        if ($user) {
+            if ($request->file('image')) {
+                $path = $request->file('image')->store('public');
+                Image::create([
+                    'imageable_id' => $user[0]->id,
+                    'imageable_type' => 'App\Models\User',
+                    'path' => substr($path,'6'),
+                ]);
+            } else {
+                Image::create([
+                    'imageable_id' => $user[0]->id,
+                    'imageable_type' => 'App\Models\User',
+                    'path' => '/base.jpg',
+                ]);
+            }
+            return redirect()->route('main');
         } else {
-            Image::create([
-                'imageable_id' => $user[0]->id,
-                'imageable_type' => 'App\Models\User',
-                'path' => 'public/base.png',
-            ]);
+            $error = 'error';
+            return redirect()->route('main')->withErrors('register');
         }
 
-        return redirect()->route('user.login');
+        
     }
 
     public function LogIn(Request $request)
     {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
         $credentials = $request->only('email','password');
         $user = User::where('email',$request->email)->get();
 

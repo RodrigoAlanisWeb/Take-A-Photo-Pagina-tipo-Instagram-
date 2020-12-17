@@ -13,6 +13,7 @@
             
         @else   
         <div class="header__user">
+            <img src="{{ url('storage' . auth()->user()->Image->path) }}" alt="Logo-de-Usuario" class="header__user-img">
             <h2 class="header__user-name">
                 {{ auth()->user()->name }}
             </h2>
@@ -20,7 +21,7 @@
         </div>
         <ul class="header__user-list">
             <li class="header__user-item"><a href="#" class="header__user-link">Cuenta</a></li>
-            <li class="header__user-item"><a href="#" class="header__user-link">Asistencia</a></li></li>
+            <li class="header__user-item"><a href="#" class="header__user-link">Crear Entrada</a></li>
             <li class="header__user-item"><a href="{{ route('user.logout') }}" class="header__user-link">Cerrar Sesion</a></li>
         </ul>
         @endif

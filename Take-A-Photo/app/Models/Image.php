@@ -14,4 +14,9 @@ class Image extends Model
         'imageable_id',
         'path',
     ];
+
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
 }
